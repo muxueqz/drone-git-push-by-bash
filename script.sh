@@ -26,4 +26,3 @@ fi
 git add .
 git commit . -m "${PLUGIN_COMMIT_MESSAGE}"
 git push --set-upstream origin "${PLUGIN_BRANCH}" ${PUSH_FORCE}
-echo git push --set-upstream origin "${PLUGIN_BRANCH}" ${PUSH_FORCE}
