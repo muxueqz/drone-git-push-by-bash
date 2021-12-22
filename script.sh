@@ -19,7 +19,7 @@ if [ "$PLUGIN_INIT" = "true" ];then
   git remote add origin ${PLUGIN_REMOTE}
 else
   git clone ${PLUGIN_REMOTE} -b ${PLUGIN_BRANCH} ../tmp_for_push
-  rm -rfv ../tmp_for_push/*
+  # rm -rfv ../tmp_for_push/*
   cp -av . ../tmp_for_push/
   cd ../tmp_for_push
 fi
