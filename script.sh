@@ -11,7 +11,8 @@ git config --global user.email $DRONE_COMMIT_AUTHOR_EMAIL
 git init
 git add .
 [ -z $PLUGIN_COMMIT_MESSAGE ] && PLUGIN_COMMIT_MESSAGE='push'
+[ -z $PLUGIN_BRANCH: ] && PLUGIN_BRANCH='master'
 [ $PLUGIN_FORCE == "true" ] && PLUGIN_FORCE='--force'
 git commit . -m "${PLUGIN_COMMIT_MESSAGE}"
 git remote add origin ${PLUGIN_REMOTE}
-git push --set-upstream origin master ${PLUGIN_FORCE}
+git push --set-upstream origin ${PLUGIN_BRANCH} ${PLUGIN_FORCE}
