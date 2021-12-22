@@ -11,13 +11,14 @@ git config --global user.name $DRONE_COMMIT_AUTHOR
 git config --global user.email $DRONE_COMMIT_AUTHOR_EMAIL
 
 [ -z $PLUGIN_BRANCH ] && PLUGIN_BRANCH='master'
-[ -z $PLUGIN_COMMIT_MESSAGE ] && PLUGIN_COMMIT_MESSAGE=${DRONE_COMMIT_MESSAGE}
+[ -z "$PLUGIN_COMMIT_MESSAGE" ] && PLUGIN_COMMIT_MESSAGE="${DRONE_COMMIT_MESSAGE}"
 [ "$PLUGIN_FORCE" = "true" ] && PLUGIN_FORCE='--force'
 
 if [ "$PLUGIN_INIT" = "true" ];then
   git init -b ${PLUGIN_BRANCH}
   git remote add origin ${PLUGIN_REMOTE}
 else
+  rm -rfv ../tmp_for_push/*
   git clone ${PLUGIN_REMOTE} -b ${PLUGIN_BRANCH} ../tmp_for_push
   cp -av . ../tmp_for_push/
   cd ../tmp_for_push
