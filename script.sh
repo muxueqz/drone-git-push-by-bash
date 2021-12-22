@@ -17,9 +17,7 @@ git config --global user.email $DRONE_COMMIT_AUTHOR_EMAIL
 if [ "$PLUGIN_INIT" == "true" ];then
   git init -b ${PLUGIN_BRANCH}
   git remote add origin ${PLUGIN_REMOTE}
-fi
-
-if [ ! "$PLUGIN_INIT" == "true" ];then
+else
   git clone ${PLUGIN_REMOTE} -b ${PLUGIN_BRANCH} ../tmp_for_push
   cp -av . ../tmp_for_push/
   cd ../tmp_for_push
